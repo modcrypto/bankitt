@@ -142,8 +142,9 @@ public:
 
         //vFixedSeeds.clear();
         //vSeeds.clear();
-        vSeeds.push_back(CDNSSeedData("bankitt.xyz", "dnsseed.bankitt.xyz"));
-
+        vSeeds.push_back(CDNSSeedData("dnsseed.bankitt.network", "seed01.bankitt.network"));
+        vSeeds.push_back(CDNSSeedData("dnsseed.bankitt.network", "seed02.bankitt.network"));
+        vSeeds.push_back(CDNSSeedData("dnsseed.bankitt.network", "seed03.bankitt.network"));
 
         // Bankitt addresses start with 'S'
         base58Prefixes[PUBKEY_ADDRESS] = std::vector<unsigned char>(1,26);
@@ -175,10 +176,12 @@ public:
             boost::assign::map_list_of
             (    0, uint256S("0x00000fdb70656c3dc4387f3392a63e70758b43fd08a777108d340a858bec8e78"))
             (   50, uint256S("0x000001713fe688bee98928a1c6a306a668f14b81884c7915ba452e1c3b1c3d92"))
-			(   500, uint256S("0x00000118199447708fc3347f59a5c9f3bd4d48736d57e5fff3cfde12dbd118c1"))
-			(   10000, uint256S("0x00000067a878209ee9fa016fd2e8c78c5bde0e4c2e6f71665feac4bd456591d2")),
-            1517952925, // * UNIX timestamp of last checkpoint block
-            10046,         // * total number of transactions between genesis and last checkpoint
+	    (   500, uint256S("0x00000118199447708fc3347f59a5c9f3bd4d48736d57e5fff3cfde12dbd118c1"))
+	    (   10000, uint256S("0x00000067a878209ee9fa016fd2e8c78c5bde0e4c2e6f71665feac4bd456591d2"))
+            (   113800, uint256S("0x00000000042342a604d4d932af41332252d162d950e1a37da335051d747d8853"))            
+            ,
+            1524562335, // * UNIX timestamp of last checkpoint block
+            123962,         // * total number of transactions between genesis and last checkpoint
                         //   (the tx=... number in the SetBestChain debug.log lines)
             2800        // * estimated number of transactions per day after checkpoint
         };
