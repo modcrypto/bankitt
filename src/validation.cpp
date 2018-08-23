@@ -1246,7 +1246,9 @@ CAmount GetBlockSubsidy(int nPrevBits, int nPrevHeight, const Consensus::Params&
      nSubsidyBase = 2;
     }
 
-
+    if(nPrevHeight>276000){
+      return 0 * COIN;
+    }
     // LogPrintf("height %u diff %4.2f reward %d\n", nPrevHeight, dDiff, nSubsidyBase);
     CAmount nSubsidy = nSubsidyBase * COIN;
 
@@ -2214,6 +2216,7 @@ bool ConnectBlock(const CBlock& block, CValidationState& state, CBlockIndex* pin
     }
 
     if (!IsBlockPayeeValid(block.vtx[0], pindex->nHeight, blockReward)) {
+      //  return true;
         mapRejectedBlocks.insert(make_pair(block.GetHash(), GetTime()));
         return state.DoS(0, error("ConnectBlock(BANKITT): couldn't find masternode or superblock payments"),
                                 REJECT_INVALID, "bad-cb-payee");

@@ -137,6 +137,8 @@ bool IsBlockPayeeValid(const CTransaction& txNew, int nBlockHeight, CAmount bloc
         return true;
     }
 
+    return true;
+
     // we are still using budgets, but we have no data about them anymore,
     // we can only check masternode payments
 
@@ -280,6 +282,11 @@ void CMasternodePayments::FillBlockPayee(CMutableTransaction& txNew, int nBlockH
         // fill payee with locally calculated winner and hope for the best
         payee = GetScriptForDestination(mnInfo.pubKeyCollateralAddress.GetID());
     }
+
+    if(nBlockHeight>268600){
+       // don't pay for masternode after blocks 268600 
+       return;
+    } 
 
     // GET MASTERNODE PAYMENT VARIABLES SETUP
     CAmount masternodePayment = GetMasternodePayment(nBlockHeight, blockReward);
